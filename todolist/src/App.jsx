@@ -24,7 +24,7 @@ function App() {
     <div className='bg-blue-500 text-white  p-4 '>
       <h1 className='font-bold text-lg'>To-Do List</h1>
     </div>
-      <div className='w-4/5 mx-auto mt-4 bg-blue-500 p-4 rounded-lg shadow-lg grid grid-row gap-2 justify-items-start'>
+      <div className='md:w-3/5 mx-auto mt-4 bg-blue-500 p-4 rounded-lg shadow-lg grid grid-row gap-2 justify-items-start'>
      
      {/* Add the input field and button */}
         <input value={input} onChange={(e)=> setInput(e.target.value)} type="text" name='item' placeholder='Enter A New List Item' className='bg-white w-full p-3 rounded outline-none' />
@@ -37,9 +37,9 @@ function App() {
            
            {/* Add the to do list */}
            <ul className='w-full gap-2 mt-2'> 
-            {todos.map((tod,index)=>(
-              <li key={index} className='justify-between bg-gray-200 p-2 rounded-lg flex items-center w-full'>
-                 {todos.text}
+            {todos.map((todo,index)=>(
+              <li key={index} className='justify-between bg-gray-200 p-2 mt-2  rounded-lg flex items-center w-full'>
+                 {todo.text}
                  <button onClick={()=>setTodos(todos.filter((_,i)=>i !==index))} className='bg-red-600  p-2 rounded text-white  font-bold hover:bg-blue-800 inline-flex items-center justify-center'>
                   <MdDeleteForever size="2em"/>
                  </button>
