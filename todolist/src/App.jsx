@@ -8,6 +8,15 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
 
+  const addTodo = (e) => {
+    if (input.trim()){
+      setTodos([...todos, {
+        text:input,completed:false
+      }]);
+      setInput('');
+    }
+  }
+
   return (
     <div className='w-full h-screen  bg-gray-100'> 
     <div className='bg-blue-500 text-white  p-4 '>
