@@ -38,7 +38,7 @@ function App() {
            {/* Add the to do list */}
            <ul className='w-full gap-2 mt-2'> 
             {todos.map((todo,index)=>(
-              <li key={index} className='justify-between bg-gray-200 p-2 mt-2  rounded-lg flex items-center w-full'>
+              <li key={index} className='justify-between bg-gray-200 p-2 mt-2  rounded-lg flex items-center w-full '>
                  {todo.text}
                  <button onClick={()=>setTodos(todos.filter((_,i)=>i !==index))} className='bg-red-600  p-2 rounded text-white  font-bold hover:bg-blue-800 inline-flex items-center justify-center'>
                   <MdDeleteForever size="2em"/>
