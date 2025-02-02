@@ -1,14 +1,14 @@
 // Code: App component
 import './App.css';
 import {useState}  from 'react';
-import { MdPlaylistAdd } from "react-icons/md";
+import { MdPlaylistAdd, MdDeleteForever } from "react-icons/md";
 
 function App() {
 
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
 
-  const addToDo = (e) => {
+  const addToDo = () => {
     if (input.trim()){
       setTodos([...todos, {
         text:input,completed:false
@@ -31,8 +31,16 @@ function App() {
         <div className='w-full bg-white p-4 rounded shadow-lg gap-2'>
            <h2 className='text-center font-bold text-lg'>Your List</h2>
            <hr  />
-           <ul className='w-full gap-2'> 
+           <ul className='w-full gap-2 mt-2'> 
+            {todos.map((tod,index)=>(
+              <li key={index} className='justify-between bg-gray-200 p-2 rounded-lg flex items-center w-full'>
+                 {todos.text}
+                 <button onClick={()=>setTodos(todos.filter((_,i)=>i !==index))} className='bg-red-600  p-2 rounded text-white  font-bold hover:bg-blue-800 inline-flex items-center justify-center'>
+                  <MdDeleteForever size="2em"/>
+                 </button>
+              </li>
 
+            ))}
            </ul>
         </div>
       </div>
