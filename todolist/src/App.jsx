@@ -1,12 +1,22 @@
 // Code: App component
 import './App.css';
-import {useState}  from 'react';
+import {useState, useEffect}  from 'react';
 import { MdPlaylistAdd, MdDeleteForever } from "react-icons/md";
 
 function App() {
 // State for the to-do list
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos=localStorage.getItem('todos');
+
+// If there are saved to-dos, load them, otherwise return an empty array
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
   const [input, setInput] = useState('');
+
+  // Save the to-dos to local storage
+useEffect(()=>{
+  localStorage.setItem('todos',JSON.stringify(todos));
+},[todos]);
 
   // Add a new to-do item
   const addToDo = () => {
