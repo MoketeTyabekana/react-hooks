@@ -20,8 +20,8 @@ function App() {
   const [error, setError] = useState(null);
 
   // Defined the function to get the weather icons related to the weather.
-  const getWeatherIcon = (weather) => {
-    switch (weather.toLowerCase()) {
+  const getWeatherIcon = (condition) => {
+    switch (condition.toLowerCase()) {
       case "clear":
         return <FaSun className="weather-icon" />;
       case "clouds":
@@ -47,6 +47,7 @@ function App() {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
+      // Defined the if block to check if the response is ok.
       if (response.ok) {
         const data = await response.json();
         setWeather(data);
@@ -68,7 +69,11 @@ function App() {
       <div className="bg-blue-300 p-4 rounded-lg w-4/5 grid gap-3 shadow-lg">
         <h1 className="text-xl font-bold text-blue-950 text">Weather App</h1>
 
-        <form action="" className=" search-box flex flex-row ">
+        <form
+          action=""
+          onSubmit={getWeather}
+          className=" search-box flex flex-row "
+        >
           <input
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -83,9 +88,37 @@ function App() {
             <FaSearch />
           </button>
         </form>
-        {/* Defined the loading state */}
-        {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>}
+
+        {/* Defined the Loading state */}
+        {loading && (
+          <p className="text-blue-800 text-center font-bold">Loading...</p>
+        )}
+
+        {/* Defined the error state */}
+        {error && <p className="error">{error}</p>}
+
+        {weather && (
+          <div className="weather-info bg-amber-50 p-3 rounded-lg">
+            <h2 >
+              {weather.name}, {weather.sys.country}
+            </h2>
+            <div className="weather-main">
+              {getWeatherIcon(weather.weather[0].main)}
+              <span className="temp">{Math.round(weather.main.temp)}°C</span>
+            </div>
+            <p className="description">{weather.weather[0].description}</p>
+            <div className="details">
+              <div className="detail-item">
+                <FaWind />
+                <span>{weather.wind.speed} m/s</span>
+              </div>
+              <div className="detail-item">
+                <FaCloud />
+                <span>{weather.clouds.all}%</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
