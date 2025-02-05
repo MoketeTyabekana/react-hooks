@@ -10,6 +10,21 @@ function App() {
   const [loading,setLoading]=useState(false	);
   const [error,setError]=useState(null);
 
+// Defined the function to get the weather icons related to the weather.
+  const getWeatherIcon=(weather)=>{
+  switch (weather.toLowerCase()) {
+    case 'clear' :
+      return <FaSun/>;
+      case 'clouds' :
+        return <FaCloud/>;
+        case 'rain' :
+          return <FaCloudRain/>;
+          case 'snow' :
+            return <FaSnowflake/>;
+            case 'wind' :
+              return <FaWind/>;
+  }};
+
 // Defined the API key.
   const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -27,6 +42,6 @@ function App() {
      </div>
     </div>
   )
-}
 
-export default App
+}
+export default App;
