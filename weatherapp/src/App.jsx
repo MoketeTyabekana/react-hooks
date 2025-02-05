@@ -4,6 +4,9 @@ import { FaSun, FaCloud, FaCloudRain, FaSnowflake, FaWind, FaSearch } from 'reac
 
 function App() {
 
+// Defined the API key.
+  const apiKey = import.meta.env.VITE_API_KEY;
+
 //  Defined the states.
   const [weather,setWeather]=useState(null);
   const [city,setCity]=useState('');
@@ -25,9 +28,36 @@ function App() {
               return <FaWind className='weather-icon'/>;
   }};
 
-// Defined the API key.
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const getWeather=async(e)=>{
+    e.preventDefault();
+    if (!city.trim()) return;
 
+    setLoading(true);
+    setError(null);
+
+// Defined the try block to fetch the data from the API.
+    try{
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+      if(response.ok){
+        const data = await response.json();
+        setWeather(data);
+      }
+      else{
+        throw new Error('City not found');
+    }
+  } 
+  // Defined the catch block to catch the error.
+    catch(error){
+     setError(error.message);
+     setWeather(null);
+    }
+    // Defined the finally block to set the loading to false.
+    finally	{
+      setLoading(false);
+    }
+  };
+
+  
   return (
     <div className='bg-blue-800 h-screen flex justify-center items-center'>
      <div className='bg-blue-300 p-4 rounded-lg w-4/5 grid gap-3 shadow-lg'> 
