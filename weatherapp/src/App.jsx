@@ -1,9 +1,16 @@
 import './App.css';
+import { useState, useEffect } from 'react';
 import { FaSun, FaCloud, FaCloudRain, FaSnowflake, FaWind, FaSearch } from 'react-icons/fa';
 
 function App() {
 
+//  Defined the states.
+  const [weather,setWeather]=useState(null);
+  const [city,setCity]=useState('');
+  const [loading,setLoading]=useState(false	);
+  const [error,setError]=useState(null);
 
+// Defined the API key.
   const apiKey = import.meta.env.VITE_API_KEY;
 
   return (
