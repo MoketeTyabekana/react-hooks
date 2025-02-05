@@ -14,15 +14,15 @@ function App() {
   const getWeatherIcon=(weather)=>{
   switch (weather.toLowerCase()) {
     case 'clear' :
-      return <FaSun/>;
+      return <FaSun className='weather-icon'/>;
       case 'clouds' :
-        return <FaCloud/>;
+        return <FaCloud className='weather-icon'/>;
         case 'rain' :
-          return <FaCloudRain/>;
+          return <FaCloudRain className='weather-icon'/>;
           case 'snow' :
-            return <FaSnowflake/>;
+            return <FaSnowflake className='weather-icon'/>;
             case 'wind' :
-              return <FaWind/>;
+              return <FaWind className='weather-icon'/>;
   }};
 
 // Defined the API key.
