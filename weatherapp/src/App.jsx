@@ -98,11 +98,11 @@ function App() {
         {error && <p className="error">{error}</p>}
 
         {weather && (
-          <div className="weather-info bg-amber-50 p-3 rounded-lg flex flex-col  gap-4">
-            <h2 className="weather-main text-blue-800 text-lg font-bold"> 
+          <div className="weather-info bg-amber-50 p-8 rounded-lg flex flex-col  gap-4">
+            <h2 className="weather-main text-blue-800 text-lg font-bold text-center"> 
               {weather.name}, {weather.sys.country}
             </h2> 
-            <div className="weather-main text-blue-800 text-3xl flex gap-6 items-center">
+            <div className="weather-main text-blue-800 text-3xl flex gap-6 font-bold justify-between items-center">
               {getWeatherIcon(weather.weather[0].main)}
               <span className="temp">{Math.round(weather.main.temp)}°C</span>
             </div>
