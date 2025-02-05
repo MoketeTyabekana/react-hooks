@@ -34,8 +34,8 @@ function App() {
      <h1 className='text-xl font-bold text-blue-950 text'>Weather App</h1>
 
      <form action="" className=' search-box flex flex-row '>
-     <input type="text" placeholder='Enter city name...' className='p-3 w-full bg-white  border-0 focus:outline-none focus:ring-0'  />
- <button type='submit' className='p-3 px-6  bg-blue-800  border-none text-white font-bold hover:bg-blue-900 flex  items-center gap-2  '>
+     <input type="text" placeholder='Enter city name...' className='p-3 w-full bg-white  border-0 focus:outline-none focus:ring-0 rounded-l-md'  />
+ <button type='submit' className='p-3 px-6  bg-blue-800  border-none text-white font-bold hover:bg-blue-900 flex  items-center gap-2 rounded-r-md '>
  <FaSearch/> 
  </button>
      </form>
