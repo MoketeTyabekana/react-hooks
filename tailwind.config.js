@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-
-        // Range for medium devices (640px - 1023px)
-        'sm': { 'min': '300px', 'max': '1023px' }, 
-
-        // Range for large devices (1024px - 1279px)
-        'md': { 'min': '1024px', 'max': '1279px' }, 
+        sm: {max:'900px'}, 
+        md: {min:'910px'}, 
+        lg: {min:'1024px'}, 
       },
-
+      backgroundImage: {
+        'custom-gradient': "linear-gradient(-180deg, rgba(0,0,0,0.9), rgba(0,0,0,1)), url('https://i.ebayimg.com/images/g/BVMAAOSw1uNhenX7/s-l1600.jpg')",
+        'custom-gradient-two': "linear-gradient(-180deg, rgba(0,0,0,0.9), rgba(0,0,0,1)), url('https://w.wallhaven.cc/full/0w/wallhaven-0w2de6.jpg')",
+      },
     },
   },
   plugins: [],

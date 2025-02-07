@@ -6,14 +6,7 @@ import rain from "./assets/rain.png";
 import cloudy from "./assets/cloudy.png";
 import wind from "./assets/wind.png";
 
-import {
-  FaSun,
-  FaCloud,
-  FaCloudRain,
-  FaSnowflake,
-  FaWind,
-  FaSearch,
-} from "react-icons/fa";
+import {FaSun,FaCloud,FaCloudRain,FaSnowflake,FaWind,FaSearch,} from "react-icons/fa";
 
 function App() {
   // Defined the API key.
@@ -72,15 +65,18 @@ function App() {
 
   return (
     <div className="bg-gradient-to-br from-blue-300 to-blue-800 h-screen flex justify-center items-center">
-      <div className="backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/40
- p-4 rounded-lg w-3/5 grid gap-3 shadow-lg">
-        <h1 className="text-xl font-bold text-blue-800 text">Weather App</h1>
+      <div
+        className="backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/40
+ p-4 rounded-lg w-3/5 grid gap-3 shadow-lg"
+      >
+        <h1 className="text-xl font-bold text-blue-800 text-center">Weather App</h1>
 
         <form
           action=""
           onSubmit={getWeather}
           className=" search-box flex flex-row "
         >
+          {/* Defined the input field to get the city name. */}
           <input
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -88,6 +84,7 @@ function App() {
             placeholder="Enter city name..."
             className="p-3 w-full bg-white  border-0 focus:outline-none focus:ring-0 rounded-l-md"
           />
+          {/* Defined the search button */}
           <button
             type="submit"
             className="p-3 px-6  bg-blue-800  border-none text-white font-bold hover:bg-blue-900 flex  items-center gap-2 rounded-r-md "
@@ -102,8 +99,9 @@ function App() {
         )}
 
         {/* Defined the error state */}
-        {error && <p className="error">{error}</p>}
+        {error && <p className="error text-white">{error}</p>}
 
+        {/* Defined the weather state */}
         {weather && (
           <div className="weather-info rounded-lg flex flex-col  gap-5 mt-10">
             <h2 className="weather-main text-blue-800 text-lg font-bold text-center p-4 bg-gray-200/20 rounded">
@@ -118,18 +116,15 @@ function App() {
               </span>
             </div>
 
-            
-              <div className="details flex items-center justify-around text-white">
-                <FaWind />
-                <span>{weather.wind.speed} m/s</span>
-                <FaCloud />
-                <p className="description">{weather.weather[0].description}</p>
-               
-                <span>{weather.clouds.all}%</span>
-              </div>
-             
+            <div className="details flex items-center justify-around text-white">
+              <FaWind />
+              <span>{weather.wind.speed} m/s</span>
+              <FaCloud />
+              <p className="description">{weather.weather[0].description}</p>
+
+              <span>{weather.clouds.all}%</span>
             </div>
-        
+          </div>
         )}
       </div>
     </div>
