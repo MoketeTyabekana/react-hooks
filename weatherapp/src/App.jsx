@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   FaSun,
   FaCloud,
@@ -65,9 +65,10 @@ function App() {
   };
 
   return (
-    <div className="bg-blue-800 h-screen flex justify-center items-center">
-      <div className="bg-blue-300 p-4 rounded-lg w-4/5 grid gap-3 shadow-lg">
-        <h1 className="text-xl font-bold text-blue-950 text">Weather App</h1>
+    <div className="bg-gradient-to-br from-blue-300 to-blue-800 h-screen flex justify-center items-center">
+      <div className="backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/40
+ p-4 rounded-lg w-3/5 grid gap-3 shadow-lg">
+        <h1 className="text-xl font-bold text-blue-800 text">Weather App</h1>
 
         <form
           action=""
@@ -98,26 +99,30 @@ function App() {
         {error && <p className="error">{error}</p>}
 
         {weather && (
-          <div className="weather-info bg-amber-50 p-8 rounded-lg flex flex-col  gap-4">
-            <h2 className="weather-main text-blue-800 text-lg font-bold text-center"> 
+          <div className="weather-info rounded-lg flex flex-col  gap-5 mt-10">
+            <h2 className="weather-main text-blue-800 text-lg font-bold text-center p-4 bg-gray-200/20 rounded">
               {weather.name}, {weather.sys.country}
-            </h2> 
-            <div className="weather-main text-blue-800 text-3xl flex gap-6 font-bold justify-between items-center">
-              {getWeatherIcon(weather.weather[0].main)}
-              <span className="temp">{Math.round(weather.main.temp)}°C</span>
+            </h2>
+            <div className="weather-main text-white  flex flex-col gap-6 font-bold justify-between items-center ">
+              <span className="text-9xl">
+                {getWeatherIcon(weather.weather[0].main)}
+              </span>
+              <span className="temp text-6xl">
+                {Math.round(weather.main.temp)}°C
+              </span>
             </div>
-            <p className="description">{weather.weather[0].description}</p>
-            <div className="details">
-              <div className="detail-item">
+
+            
+              <div className="details flex items-center justify-around text-white">
                 <FaWind />
+                <p className="description">{weather.weather[0].description}</p>
                 <span>{weather.wind.speed} m/s</span>
-              </div>
-              <div className="detail-item">
                 <FaCloud />
                 <span>{weather.clouds.all}%</span>
               </div>
+              <div className="detail-item flex items-center justify-between text-blue-800"></div>
             </div>
-          </div>
+        
         )}
       </div>
     </div>
