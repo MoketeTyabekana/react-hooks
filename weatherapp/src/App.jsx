@@ -1,5 +1,11 @@
 import "./App.css";
 import { useState } from "react";
+import sun from "./assets/sun.png";
+import snow from "./assets/snow.png";
+import rain from "./assets/rain.png";
+import cloudy from "./assets/cloudy.png";
+import wind from "./assets/wind.png";
+
 import {
   FaSun,
   FaCloud,
@@ -23,15 +29,15 @@ function App() {
   const getWeatherIcon = (condition) => {
     switch (condition.toLowerCase()) {
       case "clear":
-        return <FaSun className="weather-icon" />;
+        return <img className="weather-icon" src={sun} alt="sun" />;
       case "clouds":
-        return <FaCloud className="weather-icon" />;
+        return <img className="weather-icon" src={cloudy} alt="cloudy" />;
       case "rain":
-        return <FaCloudRain className="weather-icon" />;
+        return <img className="weather-icon" src={rain} alt="rain" />;
       case "snow":
-        return <FaSnowflake className="weather-icon" />;
+        return <img className="weather-icon" src={snow} alt="snow" />;
       case "wind":
-        return <FaWind className="weather-icon" />;
+        return <img className="weather-icon" src={wind} alt="wind" />;
     }
   };
 
@@ -115,12 +121,13 @@ function App() {
             
               <div className="details flex items-center justify-around text-white">
                 <FaWind />
-                <p className="description">{weather.weather[0].description}</p>
                 <span>{weather.wind.speed} m/s</span>
                 <FaCloud />
+                <p className="description">{weather.weather[0].description}</p>
+               
                 <span>{weather.clouds.all}%</span>
               </div>
-              <div className="detail-item flex items-center justify-between text-blue-800"></div>
+             
             </div>
         
         )}
