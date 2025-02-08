@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-   
+  --sm:min-width:250px;
+  --md:min-width:600px;
+  --lg:min-width:1000px;
   }

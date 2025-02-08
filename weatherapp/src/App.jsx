@@ -66,8 +66,8 @@ function App() {
   return (
     <div className="bg-gradient-to-br from-blue-300 to-blue-800 h-screen flex justify-center items-center">
       <div
-        className="backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/40
- p-4 rounded-lg w-3/5 grid gap-3 shadow-lg"
+        className="backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/40 h-auto	
+ p-4 rounded-lg lg:w-3/5 md:w-4/5 sm:w-full grid gap-3 shadow-lg"
       >
         <h1 className="text-xl font-bold text-blue-800 text-center">Weather App</h1>
 
