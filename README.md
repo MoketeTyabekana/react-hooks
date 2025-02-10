@@ -1,49 +1,8 @@
+# React + Vite
 
-markdown
-Copy
-Edit
-# React Hooks Project
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Welcome to the **React Hooks Project** repository! 🚀
+Currently, two official plugins are available:
 
-In this repository, I aim to explore and implement all React Hooks through practical projects. Each project will demonstrate how to effectively use React Hooks to manage state, side effects, context, performance optimization, and more.
-
-## 📚 Table of Contents
-- [About the Project](#about-the-project)
-- [Technologies Used](#technologies-used)
-- [Hooks Covered](#hooks-covered)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
-## 📖 About the Project
-This repository serves as a comprehensive guide to mastering React Hooks. Each project is designed to cover specific hooks, their use cases, and best practices.
-
-## ⚡ Technologies Used
-- **React** (with Hooks)
-- **JavaScript (ES6+)**
-- **Tailwind CSS** (for styling)
-- **React Router** (for routing where applicable)
-
-## 🔗 Hooks Covered
-- **Basic Hooks:**
-  - `useState`
-  - `useEffect`
-  - `useContext`
-- **Additional Hooks:**
-  - `useReducer`
-  - `useCallback`
-  - `useMemo`
-  - `useRef`
-  - `useImperativeHandle`
-  - `useLayoutEffect`
-  - `useDebugValue`
-- **Custom Hooks:**
-  - Creating and implementing custom hooks
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v14+)
-- npm or yarn
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
