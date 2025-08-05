@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const App = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
+  const[isOpen, setIsOpen] = useState(false);
 
   function IncreaseCount() {
     setCount((prev) => prev + 1);
@@ -44,6 +45,27 @@ const App = () => {
         <p>hello , {name}</p>
 
       </form>
+
+      <div>
+        <button onClick={() => setIsOpen(true)}>
+          Open Modal
+        </button>
+
+        {isOpen && (
+          <div style={{ 
+            position: "fixed", 
+            top: "50%", 
+            left: "50%", 
+            transform: "translate(-50%, -50%)", 
+            backgroundColor: "white", 
+            padding: "20px", 
+            boxShadow: "0 0 10px rgba(0,0,0,0.5)" 
+          }}>
+            <h2>Modal Content</h2>
+            <button onClick={() => setIsOpen(false)}>Close Modal</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
